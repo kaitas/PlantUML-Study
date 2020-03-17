@@ -25,10 +25,12 @@ Qiita記事を書いておきました
 なおPlantUML、記事中の拡張子は `.pu` ですが、中身はテキストです。
 
 
-## PlantUML Viewer  (Chrome機能拡張)
-Chrome機能拡張[PlantUML Viewer](https://chrome.google.com/webstore/detail/plantuml-viewer/legbfeljfbjgfifnkmpoajgpgejojooj?hl=en)をインストールすると `.md` 内でも画像化することができます。
+## Pegmatite (Chrome機能拡張)
+[都元ダイスケ](https://dev.classmethod.jp/tool/chrome-extension-plantuml-in-github-markdown-v1-2-0/)氏によるChrome機能拡張[Pegmatite](https://chrome.google.com/webstore/detail/pegmatite/jegkfbnfbfnohncpcfcimepibmhlkldo/related)をインストールすると `.md` 内でも画像化することができます。
 
-下にサンプルコードがあります。上記の機能拡張がインストールされていると、自動で画像化されているはずです。
+※ただし、ソースコードをPegmatiteのサーバに送ることになりますので、厳密なPrivate運用をされている方はご注意ください。
+
+下にサンプルコードがあります。上記の機能拡張がインストールされていると、自動で画像化されているはずです（インストールされていない人には `@startuml` で始まるコードが見えているはずです）。
 
 ### サンプルコード
 ```
