@@ -1,3 +1,5 @@
+#サンプルコード
+```
 @startuml
 
 '一行コメント
@@ -73,3 +75,4 @@ hide <<ing>> stereotype
 hide <<after>> stereotype
 
 @enduml
+```
