@@ -1,0 +1,7 @@
+@startuml
+Alice -> Bob: 通信リクエスト
+Bob --> Alice: 認証レスポンス
+
+Alice -> Bob: 別の認証リクエスト
+Alice <-- Bob: 別の認証レスポンス
+@enduml
