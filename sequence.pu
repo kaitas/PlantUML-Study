@@ -1,4 +1,6 @@
 @startuml
+Title シーケンス図
+' https://plantuml.com/sequence-diagram
 Alice -> Bob: 通信リクエスト
 Bob --> Alice: 認証レスポンス
 
