@@ -231,65 +231,8 @@ PlantUMLの公式サイトを読んでいたら、こんなプロジェクトを
 
 なおPlantUMLでは公式ライブラリとして組み込まれているようです。また元祖としては[Azure-PlantUML](https://github.com/RicardoNiepel/Azure-PlantUML)のほうが先に存在しているようです。
 
----
 
-### Azure-PlantML
-Azureっぽいかっこいいアイコンたち
-
-![Azure-PlantUML](https://camo.githubusercontent.com/c20ef77b7ff1743dcea1ac2d777635e87844ccc6/687474703a2f2f7777772e706c616e74756d6c2e636f6d2f706c616e74756d6c2f70726f78793f6964783d30267372633d68747470732533412532462532467261772e67697468756275736572636f6e74656e742e636f6d2532465269636172646f4e696570656c253246417a7572652d506c616e74554d4c2532466d617374657225324673616d706c657325324642617369632532353230757361676525323532302d253235323053747265616d253235323070726f63657373696e672532353230776974682532353230417a757265253235323053747265616d2532353230416e616c79746963732e70756d6c)
-
-（ただし かわいいユーザ に使える スプライトはありませんでした）
-Azureはかっこいいし使っていきたいけど、とりあえず提案書を書く時のユーザ関係の処理、つまりC4モデルにおけるコンテキストを整理したいので、ユーザアイコンは必須なんですよね…。
-
----
-
-# AWS Symbols を使う
-
-公式ドキュメントの[サンプル](https://github.com/awslabs/aws-icons-for-plantuml#basic-usage)はこんな感じです。
-
-```
-@startuml Basic Usage - AWS IoT Rules Engine
-
-!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/master/dist
-!includeurl AWSPuml/AWSCommon.puml
-!includeurl AWSPuml/InternetOfThings/IoTRule.puml
-!includeurl AWSPuml/InternetOfThings/IoTAction.puml
-!includeurl AWSPuml/Analytics/KinesisDataStreams.puml
-!includeurl AWSPuml/ApplicationIntegration/SimpleQueueServiceSQS.puml
-
-left to right direction
-
-agent "Published Event" as event #fff
-
-IoTRule(iotRule, "Action Error Rule", "error if Kinesis fails")
-KinesisDataStreams(eventStream, "IoT Events", "2 shards")
-SimpleQueueServiceSQS(errorQueue, "Rule Error Queue", "failed Rule actions")
-
-event --> iotRule : JSON message
-iotRule --> eventStream : messages
-iotRule --> errorQueue : Failed action message
-
-@enduml
-```
-![出力結果](https://camo.githubusercontent.com/34d258b039d1a2eb420f6be54ceb9dd60516b452/687474703a2f2f7777772e706c616e74756d6c2e636f6d2f706c616e74756d6c2f70726f78793f6964783d30267372633d68747470732533412532462532467261772e67697468756275736572636f6e74656e742e636f6d2532466177736c6162732532466177732d69636f6e732d666f722d706c616e74756d6c2532466d61737465722532466578616d706c65732532464261736963253235323055736167652e70756d6c)
-
-もう一見して何を書いているのか、UMLなのかもわかんない感じですが、カッコいいAWS資料っぽい図ができました。すごい。
-
-
----
-
-## (資料)全アイコン集
-PlantUMLで使える全アイコンのリスト
-https://github.com/awslabs/aws-icons-for-plantuml/blob/master/AWSSymbols.md
-
-そもそものAWSアーキテクチャのアイコン集
-https://aws.amazon.com/jp/architecture/icons/
-
-まずは普段使いで使いそうなアイコン名を探してきましょう。
-
----
-
-## 実は簡単に include できた
+### 実は簡単に include できた
 
 `includeurl`で `.puml`を読み込むのもVS Codeが手伝ってくれるのですが、もっと短く書きたい！と思いました。
 どうやら公式で認定されているライブラリはこんな書き方が許されるようです。
@@ -336,6 +279,135 @@ ARVR->users : 集合
 }
 @enduml
 ```
+
+---
+
+
+### Azure-PlantML
+Azureっぽいかっこいいアイコンたち
+
+![Azure-PlantUML](https://camo.githubusercontent.com/c20ef77b7ff1743dcea1ac2d777635e87844ccc6/687474703a2f2f7777772e706c616e74756d6c2e636f6d2f706c616e74756d6c2f70726f78793f6964783d30267372633d68747470732533412532462532467261772e67697468756275736572636f6e74656e742e636f6d2532465269636172646f4e696570656c253246417a7572652d506c616e74554d4c2532466d617374657225324673616d706c657325324642617369632532353230757361676525323532302d253235323053747265616d253235323070726f63657373696e672532353230776974682532353230417a757265253235323053747265616d2532353230416e616c79746963732e70756d6c)
+
+（ただし かわいいユーザ に使える スプライトはありませんでした）
+Azureはかっこいいし使っていきたいけど、とりあえず提案書を書く時のユーザ関係の処理、つまりC4モデルにおけるコンテキストを整理したいので、ユーザアイコンは必須なんですよね…。
+
+---
+
+# AWS Symbols を使う(更新が止まっているようです)
+
+公式ドキュメントの[サンプル](https://github.com/awslabs/aws-icons-for-plantuml#basic-usage)はこんな感じです。
+
+```
+@startuml Basic Usage - AWS IoT Rules Engine
+
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/master/dist
+!includeurl AWSPuml/AWSCommon.puml
+!includeurl AWSPuml/InternetOfThings/IoTRule.puml
+!includeurl AWSPuml/InternetOfThings/IoTAction.puml
+!includeurl AWSPuml/Analytics/KinesisDataStreams.puml
+!includeurl AWSPuml/ApplicationIntegration/SimpleQueueServiceSQS.puml
+
+left to right direction
+
+agent "Published Event" as event #fff
+
+IoTRule(iotRule, "Action Error Rule", "error if Kinesis fails")
+KinesisDataStreams(eventStream, "IoT Events", "2 shards")
+SimpleQueueServiceSQS(errorQueue, "Rule Error Queue", "failed Rule actions")
+
+event --> iotRule : JSON message
+iotRule --> eventStream : messages
+iotRule --> errorQueue : Failed action message
+
+@enduml
+```
+![出力結果](https://camo.githubusercontent.com/34d258b039d1a2eb420f6be54ceb9dd60516b452/687474703a2f2f7777772e706c616e74756d6c2e636f6d2f706c616e74756d6c2f70726f78793f6964783d30267372633d68747470732533412532462532467261772e67697468756275736572636f6e74656e742e636f6d2532466177736c6162732532466177732d69636f6e732d666f722d706c616e74756d6c2532466d61737465722532466578616d706c65732532464261736963253235323055736167652e70756d6c)
+
+もう一見して何を書いているのか、UMLなのかもわかんない感じですが、カッコいいAWS資料っぽい図ができました。すごい。
+
+### (資料)全アイコン集
+PlantUMLで使える全アイコンのリスト
+https://github.com/awslabs/aws-icons-for-plantuml/blob/master/AWSSymbols.md
+
+そもそものAWSアーキテクチャのアイコン集
+https://aws.amazon.com/jp/architecture/icons/
+
+まずは普段使いで使いそうなアイコン名を探してきましょう。
+
+## (更新)Azureもなかなかいい
+[https://github.com/plantuml-stdlib/Azure-PlantUML](https://github.com/plantuml-stdlib/Azure-PlantUML)
+
+```
+
+@startuml
+!pragma revision 1
+
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define AzurePuml https://raw.githubusercontent.com/plantuml-stdlib/Azure-PlantUML/master/dist
+!includeurl AzurePuml/AzureCommon.puml
+!includeurl AzurePuml/AzureC4Integration.puml
+!includeurl AzurePuml/Databases/AzureRedisCache.puml
+!includeurl AzurePuml/Databases/AzureCosmosDb.puml
+!includeurl AzurePuml/Databases/AzureSqlDatabase.puml
+!includeurl AzurePuml/Web/AzureWebApp.puml
+!includeurl AzurePuml/Web/AzureCDN.puml
+!includeurl AzurePuml/Web/AzureSearch.puml
+!includeurl AzurePuml/Storage/AzureBlobStorage.puml
+!includeurl AzurePuml/Storage/AzureQueueStorage.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(user, "User")
+
+Container(spa, "Single-Page App", "Angular, JS")
+AzureWebApp(webApp, "Web & API App", "ASP.NET Core MVC 2.1, C#", "Delivers the SPA and provides RESTful web APIs which are consumed from the SPA")
+AzureCDN(cdn, "CDN", "Akamai S2", "caches publicly available content for lower latency and faster delivery of content")
+
+AzureBlobStorage(staticBlobStorage, "Static Content", "General Purpose v2, Hot, LRS")
+
+AzureQueueStorage(queue, "Queue", "General Purpose v2, LRS")
+AzureSearch(search, "Search Index", "Standard S1", "provides search suggestions, fuzzy search, and language-specific search, consolidates a single search index from multiple data stores")
+AzureRedisCache(redisCache, "Cache", "Standard C2")
+
+AzureCosmosDb(cosmosDb, "Document DB", "SQL API, 400 RUs")
+AzureSqlDatabase(sqlDb, "SQL DB", "Standard S3")
+
+AzureWebApp(webJob, "Web Job", "WebJobs SDK v3, C#", "runs long-running tasks in the background")
+
+Rel(user, spa, "Uses", "HTTPS")
+Rel(user, webApp, "Uses", "HTTPS")
+Rel(user, cdn, "Uses", "HTTPS")
+
+Rel_Neighbor(spa, webApp, "Uses", "JSON, HTTPS")
+Rel_Back_Neighbor(spa, webApp, "Delivers")
+
+Rel_Neighbor(cdn, staticBlobStorage, "Reads from")
+
+Rel(webApp, queue, "Puts background jobs into")
+Rel(webApp, sqlDb, "Reads from and writes to", "ADO.NET")
+Rel(webApp, cosmosDb, "Reads from and writes to", "SQL API")
+Rel(webApp, redisCache, "Reads from and writes to")
+Rel(webApp, search, "Reads from")
+
+Rel_U(webJob, queue, "Gets next job from")
+Rel_U(webJob, sqlDb, "Reads from and writes to", "ADO.NET")
+Rel_U(webJob, cosmosDb, "Reads from and writes to", "SQL API")
+Rel_U(webJob, redisCache, "Reads from and writes to")
+
+Rel_Back_Neighbor(cosmosDb, search, "Builds index from")
+Rel_Neighbor(search, sqlDb, "Builds index from")
+
+Lay_D(search, webJob)
+
+@enduml
+```
+
+## PlantUML Standard Library
+
+[Unofficial PlantUML Standard Library Repositories](https://github.com/plantuml-stdlib/)
+
+---
 
 ---
 

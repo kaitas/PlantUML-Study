@@ -1,0 +1,19 @@
+@startuml
+' Define the main location (URL or local file path)
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v11.1/dist
+' Include main AWSCommon and then sprite files
+!includeurl AWSPuml/AWSCommon.puml
+!includeurl AWSPuml/BusinessApplications/all.puml
+!includeurl AWSPuml/Storage/SimpleStorageServiceS3.puml
+left to right direction
+
+agent "Published Event" as event #fff
+
+IoTRule(iotRule, "Action Error Rule", "error if Kinesis fails")
+KinesisDataStreams(eventStream, "IoT Events", "2 shards")
+SimpleQueueServiceSQS(errorQueue, "Rule Error Queue", "failed Rule actions")
+
+event --> iotRule : JSON message
+iotRule --> eventStream : messages
+iotRule --> errorQueue : Failed action message
+@enduml
