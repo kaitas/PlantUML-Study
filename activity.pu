@@ -1,0 +1,44 @@
+@startuml
+' https://note.com/reality_eng/n/nff431e301929
+
+start 
+partition Hoge {
+:Hoge情報取得;
+note left 
+資料『Hoge』参照
+endnote
+:ID値取得;
+:DelegateでWebViewに渡す;
+}
+partition WebView {
+ if () then (Main)
+ -[#blue]->
+   :Aアイコン表示;
+   :Aアイコン押下;
+   if (Aの人数 > 0) then (true)
+     partition A一覧Popup {
+       :OKボタン押下;
+       :ダイアログを閉じる;   
+     }
+   else (false)
+     partition A人数0Popup {
+       :OKボタン押下;
+       :ダイアログを閉じる;
+     }
+   endif
+ else (Web_Hoge_Delegate)
+ -[#black,dashed]->
+   if (新規B人数 > 0) then (true)
+     partition B一覧View {
+       :Bアイコン表示;
+     }
+     if (B残人数 > 0) then (true)
+       :Bアイコン表示;
+     else (false)
+       :Bアイコン非表示;
+     endif
+   endif
+ endif
+}
+end
+@enduml
