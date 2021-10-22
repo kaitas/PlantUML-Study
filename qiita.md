@@ -337,6 +337,8 @@ https://aws.amazon.com/jp/architecture/icons/
 ## (更新)Azureもなかなかいい
 [https://github.com/plantuml-stdlib/Azure-PlantUML](https://github.com/plantuml-stdlib/Azure-PlantUML)
 
+![AzureUML.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/191291/1f39129c-1f18-a9f1-7438-9ea5402fa7bc.png)
+
 ```
 
 @startuml
